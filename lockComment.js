@@ -6,13 +6,12 @@
 (function($) {
 	$.fn.lockComment = function(options) {	
 		var defaults = {
-				url : '/javascript-doc/comment/comment.php',//评论
+				url : 'comment.php',//评论
 				action : 'list',//评论操作
 				type : 'article',//读取哪张表文章的评论
 				id : 1,//文章ID
 				page : 1,
-				size : 10
-				
+				size : 10			
 		};
 		var opts = $.extend(defaults, options);
 		var obj= $(this);
