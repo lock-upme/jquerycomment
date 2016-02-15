@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>评论插件</title>
+<script src="jquery.min.js"></script>
+<script src="lockComment.js"></script>
+<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.commentForm textarea {width:300px; height:100px; margin-bottom:10px;}
+.replylist { font-size:12px; backgroud-color:#eee;margin:10px 0;}
+</style>
+</head>
+
+<body>
+
+
+<div id="comment" style="margin:50px;">
+</div>
+
+<script>
+$(function () {
+	
+	$('#comment').lockComment();
+	
+});
+</script>
+</body>
+</html>

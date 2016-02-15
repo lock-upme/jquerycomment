@@ -1,0 +1,58 @@
+
+CREATE TABLE IF NOT EXISTS `ut_article_comment` (
+  `comid` int(10) NOT NULL AUTO_INCREMENT,
+  `aid` int(10) NOT NULL,
+  `uid` int(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `content` text NOT NULL,
+  `created` int(10) NOT NULL,
+  PRIMARY KEY (`comid`),
+  KEY `aid` (`aid`,`uid`,`created`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- 转存表中的数据 `ut_article_comment`
+--
+
+INSERT INTO `ut_article_comment` (`comid`, `aid`, `uid`, `username`, `content`, `created`) VALUES
+(1, 1, 1, 'daydayup', 'hello world', 0),
+(2, 1, 2, '美丽', '小小的生活', 0),
+(3, 1, 1, 'Lock', '让我们有着不一样的生活', 1454077048),
+(4, 1, 2, '李白', '要么改变自己，要么改变未来！', 1454077117),
+(5, 1, 2, '李白', '老婆大人的未来～', 1454077383);
+
+--
+-- 表的结构 `ut_article_comment_reply`
+--
+
+CREATE TABLE IF NOT EXISTS `ut_article_comment_reply` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `comid` int(10) NOT NULL,
+  `aid` int(10) NOT NULL,
+  `content` text NOT NULL,
+  `created` int(10) NOT NULL,
+  `uid` int(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comid` (`comid`,`aid`,`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- 转存表中的数据 `ut_article_comment_reply`
+
+INSERT INTO `ut_article_comment_reply` (`id`, `comid`, `aid`, `content`, `created`, `uid`, `username`) VALUES
+(1, 1, 1, 'China', 1454074476, 437, 'Lock'),
+(2, 1, 1, 'My Son', 1454074910, 437, '李白'),
+(3, 1, 1, '@天天向上 你好，我是天天向下', 1454074983, 437, 'Lock'),
+(4, 1, 1, 'Life My', 1454075113, 437, 'DayUP'),
+(5, 1, 1, 'wife is my', 1454075165, 437, '李白'),
+(6, 1, 1, '人人都是产品经理', 1454075296, 437, 'DayUP'),
+(7, 1, 1, 'this is my mac', 1454075384, 437, '李白'),
+(8, 1, 1, 'SOS', 1454075520, 437, 'Lock'),
+(9, 1, 1, 'just so so', 1454075681, 437, '李白'),
+(10, 1, 1, '@李白 yeah', 1454075695, 437, 'Lock'),
+(11, 2, 1, '这是什么东东', 1454075764, 437, '李白'),
+(12, 4, 1, 'Yes', 1454077213, 3, 'DayUP'),
+(13, 4, 1, '就是这样的！', 1454077260, 3, 'DayUP'),
+(14, 4, 1, '好吧，我知道了！', 1454077305, 2, '李白');
+
